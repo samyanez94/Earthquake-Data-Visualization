@@ -13,7 +13,7 @@ function initMap() {
     map.data.loadGeoJson("http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson");
 
     map.data.setStyle((feature) => {
-        let magnitude = feature.getProperty("mag");
+        const magnitude = feature.getProperty("mag");
         return {
             icon: getCircle(magnitude)
         };
@@ -21,7 +21,7 @@ function initMap() {
 
     map.data.addListener("click", (event) => {
         infowindow.close();
-        infowindow.setContent(event.feature.getProperty("place"));
+        infowindow.setContent(contentString(event.feature));
         infowindow.setPosition(event.latLng);
         infowindow.open(map);
     });
@@ -35,5 +35,19 @@ function initMap() {
             strokeColor: "white",
             strokeWeight: .5
         };
+    }
+
+    function contentString(feature) {
+        const title = feature.getProperty("title");
+        const date = new Date(feature.getProperty("time"));
+        const url = feature.getProperty("url");
+
+        return  '<div id="content">' +
+                '<h1 id="firstHeading">' + title + '</h1>' +
+                '<div id="bodyContent">' +
+                '<p><b>Origin Time:\t</b>' + date + '</p>' +
+                '<p><b>More Info:\t</b><a target="_blank" href="' + url +
+                '">' + url + '</a></p>' +
+                '</div></div>';
     }
 }
