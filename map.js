@@ -10,7 +10,7 @@ function initMap() {
         mapTypeId: "terrain"
     });
 
-    map.data.loadGeoJson("http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson");
+    map.data.loadGeoJson("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson");
 
     map.data.setStyle((feature) => {
         const magnitude = feature.getProperty("mag");
