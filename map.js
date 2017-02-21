@@ -1,7 +1,9 @@
 let map;
-let infowindow;
 
 function initMap() {
+
+    let infowindow = new google.maps.InfoWindow();
+
     map = new google.maps.Map(document.getElementById("map"), {
         zoom: 2,
         center: new google.maps.LatLng(28.7, -15.0),
@@ -18,12 +20,8 @@ function initMap() {
     });
 
     map.data.addListener("click", (event) => {
-        if (infowindow) {
-            infowindow.close();
-        }
-        infowindow = new google.maps.InfoWindow({
-            content: event.feature.getProperty("place")
-        });
+        infowindow.close();
+        infowindow.setContent(event.feature.getProperty("place"));
         infowindow.setPosition(event.latLng);
         infowindow.open(map);
     });
