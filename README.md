@@ -3,7 +3,7 @@ This project uses the real-time earthquake data from the U.S Geological Survey t
 
 ## Live version
 
-* https://samyanez94.github.io/Earthquake-Data-Visualization/
+https://samyanez94.github.io/Earthquake-Data-Visualization/
 
 ## Author
 
