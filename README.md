@@ -1,4 +1,4 @@
-# Real-time Earthquake Data Visualization
+# Real-Time Earthquake Data Visualization
 This project uses the real-time earthquake data from the U.S Geological Survey to display all earthquakes with a magnitude of 4.5 or more using the Google Map's API. You can click on any of the markers to gain deeper insight into the earthquake.
 
 ## Live Preview
